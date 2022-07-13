@@ -8,6 +8,8 @@ pygame.display.set_caption("Goon Town")
 WHITE = (255, 255, 255)
 
 FPS = 30
+crashed = False
+
 
 BACKROUND_IMAGE = pygame.image.load(os.path.join("assets", 'goontown.jpg'))
 HOME_IMAGE = pygame.image.load(os.path.join("assets", 'Goon home.jpg'))
@@ -19,20 +21,42 @@ def draw_window():
     WIN.blit(HOME_IMAGE, (350, 250))
     WIN.blit(HOME_IMAGE, (150, 400))
     WIN.blit(ROAD_IMAGE, (135, 300))
-    WIN.blit(GOON_IMAGE, (150, 150))
+    WIN.blit(GOON_IMAGE, (x, y))
     pygame.display.update()
 
+x = (150)
+y = (150)
+x_change = 0
+goon_speed = 0
+
 def main():
+
     clock = pygame.time.Clock()
     run = True
     while run:
         clock.tick(FPS)
+
         for event in pygame.event.get():
+
             if event.type == pygame.QUIT:
                 run = False
-
         draw_window()
-
+            ############################
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                x_change = -5
+            elif event.key == pygame.K_RIGHT:
+                x_change = 5
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                x_change = 0
+        ######################
+    ##
+    x += x_change
+    ##
+    gameDisplay.fill(white)
+    car(x,y)
+    
     pygame.quit()
 
 if __name__ == "__main__":
