@@ -10,24 +10,32 @@ WHITE = (255, 255, 255)
 FPS = 30
 crashed = False
 
-
 BACKROUND_IMAGE = pygame.image.load(os.path.join("assets", 'goontown.jpg'))
 HOME_IMAGE = pygame.image.load(os.path.join("assets", 'Goon home.jpg'))
 ROAD_IMAGE = pygame.image.load(os.path.join("assets", 'road.png'))
 GOON_IMAGE = pygame.image.load(os.path.join("assets", 'goon.png'))
+BEN_IMAGE = pygame.image.load(os.path.join("assets", 'ben.png'))
+PIRATE_IMAGE = pygame.image.load(os.path.join("assets", 'pirate.png'))
+DEMON_IMAGE = pygame.image.load(os.path.join("assets", 'demon.png'))
+ENEMYOFALL_IMAGE = pygame.image.load(os.path.join("assets", 'enemyofall.png'))
+HUNGRYMAN_IMAGE = pygame.image.load(os.path.join("assets", 'hungryman.png'))
+RESTAURANT_IMAGE = pygame.image.load(os.path.join("assets", 'Restaurant.jpg'))
+SYMBOLOFEVIL_IMAGE = pygame.image.load(os.path.join("assets", 'symbol of evil.png'))
 def draw_window():
     WIN.fill(WHITE)
     WIN.blit(BACKROUND_IMAGE, (0, 0))
     WIN.blit(HOME_IMAGE, (350, 250))
     WIN.blit(HOME_IMAGE, (150, 400))
     WIN.blit(ROAD_IMAGE, (135, 300))
-    WIN.blit(GOON_IMAGE, (x, y))
+    WIN.blit(BEN_IMAGE, (400, 250))
+    WIN.blit(PIRATE_IMAGE, (400, 30))
+    WIN.blit(DEMON_IMAGE, (650, 550))
+    WIN.blit(ENEMYOFALL_IMAGE, (240, 400))
+    WIN.blit(HUNGRYMAN_IMAGE, (120, 400))
+    WIN.blit(GOON_IMAGE, (150, 150))
+    WIN.blit(RESTAURANT_IMAGE, (150, 250))
+    WIN.blit(SYMBOLOFEVIL_IMAGE, (270, 380))
     pygame.display.update()
-
-x = (150)
-y = (150)
-x_change = 0
-goon_speed = 0
 
 def main():
 
@@ -41,22 +49,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
         draw_window()
-            ############################
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                x_change = -5
-            elif event.key == pygame.K_RIGHT:
-                x_change = 5
-        if event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                x_change = 0
-        ######################
-    ##
-    x += x_change
-    ##
-    gameDisplay.fill(white)
-    car(x,y)
-    
+
     pygame.quit()
 
 if __name__ == "__main__":
